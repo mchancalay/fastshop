@@ -1,0 +1,68 @@
+@use '../base/colors';
+@use '../utilities/mixins';
+
+.navegation {
+    height: 6em;
+    background-color: colors.$color-light;
+
+    &__box {
+        display: flex;
+        align-items: center;
+        height: 6em;
+        justify-content: space-between;
+    }
+
+    &__logo {
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    &__list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__item {
+
+        // NAVEGATION CARRITO
+        &-carrito {
+            position: relative;
+            cursor: pointer;
+
+            &-img {
+                width: 3.5em;
+            }
+
+            &-circulo {
+                position: absolute;
+                top: -.3em;
+                right: 0;
+                width: 1.8em;
+                height: 1.8em;
+                border-radius: 100%;
+                background-color: colors.$color-carrito-circulo;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &-cant {
+                    color: colors.$color-light;
+                    font-weight: bold;
+                    font-size: 1.2em;
+                }
+            }
+        }
+    }
+
+    &__search {
+        @include mixins.resetInput();
+        
+    }
+}
+
+@media screen and (max-width: 766.99px) {
+    .grilla {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

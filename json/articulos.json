@@ -1,0 +1,52 @@
+[
+    {
+      "id": 1,
+      "nombre": "Chaleco The North Face Negro",
+      "precio": 94999.99,
+      "imagen": "./imgs/productos/1.jpg"
+    },
+    {
+      "id": 2,
+      "nombre": "Camisa LV Blanca",
+      "precio": 94999.99,
+      "imagen": "./imgs/productos/2.jpg"
+    },
+    {
+      "id": 3,
+      "nombre": "Camisa LV Azul",
+      "precio": 72199.99,
+      "imagen": "./imgs/productos/3.jpg"
+    },
+    {
+      "id": 4,
+      "nombre": "Chomba Polo Azul",
+      "precio": 94999.99,
+      "imagen": "./imgs/productos/4.jpg"
+    },
+    {
+      "id": 5,
+      "nombre": "Chomba Polo Negra",
+      "precio": 94999.99,
+      "imagen": "./imgs/productos/5.jpg"
+    },
+    {
+      "id": 6,
+      "nombre": "Chomba Polo Roja",
+      "precio": 94999.99,
+      "imagen": "./imgs/productos/6.jpg"
+    }
+    ,
+    {
+      "id": 7,
+      "nombre": "Gorra Amiri Roja",
+      "precio": 94999.99,
+      "imagen": "./imgs/productos/7.jpg"
+    }
+    ,
+    {
+      "id": 8,
+      "nombre": "Buzo Bappe Baby Milo Negro",
+      "precio": 94999.99,
+      "imagen": "./imgs/productos/8.jpg"
+    }
+  ]

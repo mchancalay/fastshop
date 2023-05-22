@@ -1,0 +1,16 @@
+@use '../base/colors';
+
+.carrito {
+    display: flex;
+    gap: 2em;
+
+    &__item {
+        display: flex;
+    }
+
+    &__img {
+        width: 15em;
+        border: 1px solid;
+        border-image: colors.$color-gradient-primary 1;
+    }
+}
