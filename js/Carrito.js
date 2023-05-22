@@ -9,6 +9,7 @@ export default class Carrito {
         if(localStorage.getItem("carrito")){
             this.articulos = JSON.parse(localStorage.getItem("carrito"));
         }
+        document.getElementById("cantidad-en-carrito").innerText = this.obtenerCantidad();
     }
 
     agregarArticulo(articulo) {
@@ -20,11 +21,12 @@ export default class Carrito {
                 articulo.cantidad = 1;
                 this.articulos.push(articulo);
             }
-            localStorage.setItem("carrito", JSON.stringify(this.articulos));
+            document.getElementById("cantidad-en-carrito").innerText = this.obtenerCantidad();
         }
     }
 
     mostrarArticulos() {
+        localStorage.setItem("carrito", JSON.stringify(this.articulos));
 
         const listadoCarrito = document.getElementById("listado-carrito");
         listadoCarrito.innerHTML= '';
@@ -52,6 +54,12 @@ export default class Carrito {
         
     }
 
-    
+    obtenerCantidad() {
+        let acu = 0;
+        this.articulos.forEach(a => {
+            acu += a.cantidad;
+        })
+        return acu;
+    }
 
 }
