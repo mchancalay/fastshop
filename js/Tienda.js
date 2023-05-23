@@ -44,7 +44,7 @@ export default class Tienda {
                               </div>
                               <div class="articulo__info">
                                   <h4 class="articulo__nombre">${articulo.nombre}</h4>
-                                  <p class="articulo__precio">$${articulo.precio}</p>
+                                  <p class="articulo__precio">$${articulo.precio.toLocaleString()}</p>
                               </div>
                               `;
       listadoArticulosPrincipales.appendChild(article);

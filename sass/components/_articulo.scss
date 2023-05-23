@@ -16,8 +16,7 @@
 
     &__img {
         width: 100%;
-        border: 1px solid;
-        border-image: colors.$color-gradient-primary 1;
+        border: 1px solid colors.$color-light;
         border-bottom: none;
     }
     
@@ -27,12 +26,8 @@
         height: 3em;
         top: -1em;
         text-transform: uppercase;
-        color: #fff;
-        background-color: colors.$color-dark;
+        background-color: colors.$color-light;
         font-size: 1.3em;
-        border-bottom-left-radius: .3em;
-        border-bottom-right-radius: .3em;
-
     }    
 
     &__precio {

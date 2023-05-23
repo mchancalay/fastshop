@@ -7,16 +7,16 @@ export default class Carrito {
 
     cargarCarrito(){
         if(localStorage.getItem("carrito")){
-            this.articulos = JSON.parse(localStorage.getItem("carrito"));
+            //this.articulos = JSON.parse(localStorage.getItem("carrito"));
         }
         document.getElementById("cantidad-en-carrito").innerText = this.obtenerCantidad();
     }
 
     agregarArticulo(articulo) {
         if (articulo != null) {
-            const articuloAbuscar = this.articulos.find(a => a.id === articulo.id);
-            if(articuloAbuscar != null) {
-                articuloAbuscar.cantidad++;
+            const articuloEncontrado = this.articulos.find(a => a.id === articulo.id);
+            if(articuloEncontrado != null) {
+                articuloEncontrado.cantidad++;
             } else {
                 articulo.cantidad = 1;
                 this.articulos.push(articulo);
@@ -25,7 +25,24 @@ export default class Carrito {
         }
     }
 
-    mostrarArticulos() {
+    quitarArticulo(articulo) {
+        if (articulo != null) {
+          const index = this.articulos.findIndex(a => a.id === articulo.id);
+          if (index !== -1) {
+            const articuloEncontrado = this.articulos[index];
+            if (articuloEncontrado.cantidad === 1) {
+              articuloEncontrado.cantidad--;
+              this.articulos.splice(index, 1);
+            } else {
+              articuloEncontrado.cantidad--;
+            }
+            this.mostrarArticulos();
+          }
+        }
+        document.getElementById("cantidad-en-carrito").innerText = this.obtenerCantidad();
+      }
+
+      async mostrarArticulos() {
         localStorage.setItem("carrito", JSON.stringify(this.articulos));
 
         const listadoCarrito = document.getElementById("listado-carrito");
@@ -42,13 +59,19 @@ export default class Carrito {
                                 </div>
                                 <div class="carrito__info">
                                     <h4 class="carrito__nombre">${articulo.nombre}</h4>
-                                    <p class="carrito__precio">$${articulo.precio}</p>
-                                    <button id="carrito__btn--quitar">Quitar</button>
+                                    <p class="carrito__precio">$${articulo.precio.toLocaleString()}</p>
+                                    <button id="quitar-id-${articulo.id}"">Quitar</button>
                                     ${articulo.cantidad}
                                 </div>
                             </li>
             `
             listadoCarrito.appendChild(li);
+
+            const quitarDelCarrito = document.getElementById(`quitar-id-${articulo.id}`);
+            quitarDelCarrito.addEventListener("click", () => {
+              this.quitarArticulo(articulo);
+              
+            })
         })
 
         
