@@ -33,7 +33,6 @@ export default class Tienda {
 
   mostrarArticulos(){
     const listadoArticulosPrincipales = document.getElementById("listado-articulos-principales");
-
     this.articulos.forEach(articulo => {
       
       const article = document.createElement("article");
@@ -48,11 +47,9 @@ export default class Tienda {
                               </div>
                               `;
       listadoArticulosPrincipales.appendChild(article);
-
       const agregarAlCarrito = document.getElementById(`agregar-id-${articulo.id}`);
       agregarAlCarrito.addEventListener("click", () => {
         this.carrito.agregarArticulo(articulo);
-        
       })
     })
   }

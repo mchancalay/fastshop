@@ -22,9 +22,9 @@ export default class Carrito {
                 this.articulos.push(articulo);
             }
             document.getElementById("cantidad-en-carrito").innerText = this.obtenerCantidad();
+            this.mostrarArticulos();
         }
     }
-
     quitarArticulo(articulo) {
         if (articulo != null) {
           const index = this.articulos.findIndex(a => a.id === articulo.id);
@@ -42,28 +42,24 @@ export default class Carrito {
         document.getElementById("cantidad-en-carrito").innerText = this.obtenerCantidad();
       }
 
-      async mostrarArticulos() {
+      mostrarArticulos() {
         localStorage.setItem("carrito", JSON.stringify(this.articulos));
-
         const listadoCarrito = document.getElementById("listado-carrito");
         listadoCarrito.innerHTML= '';
-
         this.articulos.forEach(articulo => {
-
             const li = document.createElement("li");
             li.classList.add(`carrito__item`);
             li.innerHTML = `
-                            <li class="carrito__item">
-                                <div class="carrito__imagen">
-                                    <img class="carrito__img" src="${articulo.imagen}" alt="${articulo.nombre}">
-                                </div>
-                                <div class="carrito__info">
-                                    <h4 class="carrito__nombre">${articulo.nombre}</h4>
-                                    <p class="carrito__precio">$${articulo.precio.toLocaleString()}</p>
-                                    <button id="quitar-id-${articulo.id}"">Quitar</button>
-                                    ${articulo.cantidad}
-                                </div>
-                            </li>
+                            <div class="carrito__imagen">
+                                <img class="carrito__img" src="${articulo.imagen}" alt="${articulo.nombre}">
+                            </div>
+                            <div class="carrito__info">
+                                <h4 class="carrito__nombre">${articulo.nombre}</h4>
+                                <p class="carrito__precio">$${articulo.precio.toLocaleString()}</p>
+                                <p class="carrito__total-precio">$${(articulo.cantidad * articulo.precio).toFixed(2)}<p/>
+                                <button id="quitar-id-${articulo.id}"">Quitar</button>
+                                ${articulo.cantidad}
+                            </div>
             `
             listadoCarrito.appendChild(li);
 
@@ -73,8 +69,6 @@ export default class Carrito {
               
             })
         })
-
-        
     }
 
     obtenerCantidad() {

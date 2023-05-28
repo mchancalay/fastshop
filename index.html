@@ -23,8 +23,7 @@
           <input placeholder="Buscador" id="buscador" class="navegation__search" type="text">
           <ul class="navegation__list">
             <li class="navegation__item">
-              <div class="navegation__item-carrito" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                aria-controls="offcanvasRight">
+              <div class="navegation__item-carrito">
                 <div class="navegation__item-carrito-circulo">
                   <span class="navegation__item-carrito-circulo-cant" id="cantidad-en-carrito"></span>
                 </div>
@@ -47,19 +46,20 @@
     </div>
   </main>
 
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasRightLabel">Mi carrito</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body carrito">
-      <ul class="carrito__list" id="listado-carrito">
 
-      </ul>
-    </div>
+  <div class="container">
+    <aside class="carrito filtro">
+      <div class="carrito__box">
+        <button class="carrito__btn-close" id="cerrar-carrito">X</button>
+        <ul class="carrito__list" id="listado-carrito">
+        
+        </ul>
+      </div>
+    </aside>
   </div>
 
 
+  
 
   <!-- boostrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
