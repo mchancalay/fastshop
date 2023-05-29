@@ -19,6 +19,7 @@ cerrarCarrito.addEventListener("click", () => {
     tienda.carrito.mostrarArticulos();
 });
 
+
 // Buscador articulos
 document.addEventListener("keyup", e => {
     if(e.target.matches("#buscador")){
